@@ -1,2 +1,2 @@
-# ola mundo aluno
+# olá, mundo! aluno
  primeiro passo em javasript
