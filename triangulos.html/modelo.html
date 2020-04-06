@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background: #5b5b79;
+            font: normal 15pt Arial;
+        }
+        header{
+            color: white;
+            text-align: center;
+        }
+        section{
+            background: white;
+            border-radius: 10px;
+            padding:  15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, .500);
+            width: 500px;
+            margin: auto;
+
+        }
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+        input#botao{
+            width: 100px;
+            height: 30px;
+            background: #67b6eb;
+            color: white;
+        }
+        input{
+            border-radius: 10px;
+            height: 35px;
+        }
+        
+    </style>
+    <title>Triangulos</title>
+</head>
+<body>
+    <header>
+    <h1>Verificador de Triangulos</h1>
+   </header>
+    <section>
+
+        <div>
+            <form action="">
+                <p>1º Lado <input type="number" name="txtn1" id="txtn1"></p>
+                <p>2º Lado <input type="number" name="txtn2" id="txtn2"></p>
+                <p>3º Lado <input type="number" name="txtn2" id="txtn3"></p>
+                <input type="button" id="botao" value="Verificar" onclick="verificar()">
+
+            </form>
+            
+        </div>
+            
+        <div id="res">
+            Preencha os dados acima!
+        </div>
+    </section>
+    <script>
+            function verificar(params) {
+                var l1 = document.querySelector('input#txtn1')
+                var l2 = document.getElementById('txtn2')
+                var l3 = document.getElementById('txtn3')
+                var res = document.querySelector('div#res')
+                if (l1.value.length == 0 || l2.value.length == 0 || l3.value.length == 0) {
+                    alert('ERRO! digite os dados corretamente')
+                }else{
+                    var lado1 = Number(l1.value)
+                    var lado2 = Number(l2.value)
+                    var lado3 = Number(l3.value)
+                    var img = document.createElement('img')
+                    img.setAttribute('id','foto')
+                    if (lado1 < lado2 + lado3 && lado2 < lado3 + lado1 && lado3 < lado1 + lado2) {
+                        res.innerHTML = 'Pode formar um triângulo: '
+                        res.style.textAlign = 'center'
+                            if (lado1 == lado2 && lado2 == lado3) {
+                                res.innerHTML += 'Equilátero'
+                                img.setAttribute('src','equilatero.png')
+                            }else if (lado1 != lado2 && lado1 != lado3 && lado2 != lado3) {
+                                img.setAttribute('src','escaleno.png')
+                                res.innerHTML += 'Escaleno'
+                            }else{
+                                img.setAttribute('src','esosceles.png')
+                                res.innerHTML += 'Esósceles'
+                            }
+                            res.appendChild(img)
+                            img.style.textAlign = 'center'
+                    } else {
+                        res.innerHTML = 'Os valores acima não formam um triângulo'
+                        
+                    }
+                
+                }
+            }
+    </script>
+    <footer>
+        <p>&copy; Curso em video Patricia</p>
+    </footer>
+</body>
+</html>
