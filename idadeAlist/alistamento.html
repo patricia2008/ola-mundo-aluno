@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background: #4b4bf0;
+            font: normal 15pt Arial;
+        }
+        header{
+            color: white;
+            text-align: center;
+        }
+        section{
+            background: white;
+            border-radius: 10px;
+            padding:  15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, .500);
+            width: 500px;
+            margin: auto;
+
+        }
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+    <title>Hora do Dia</title>
+</head>
+<body>
+    <header>
+    <h1>Hora do Dia</h1>
+   </header>
+    <section>
+
+        <div>
+            <form action="">
+                <p>Data de Nascimento <input type="number" id="txtn"></p>
+                <p>
+                    <input type="radio" name="radsex" id="mas">
+                    <label for="mas">Masculino</label>
+                    <input type="radio" name="radsex" id="fem">
+                    <label for="fem">Feminino</label>
+                </p>
+               <p><input type="button" value="Calcular" onclick="cal()">
+                    <input type="reset" value="Reset" onclick="limpa()">
+            </p> 
+            </form>
+        </div>
+           <div id="sex"></div>
+        <div id="res">
+
+        </div>
+    </section>
+    <script>
+        function cal(params) {
+            var data = new Date()
+            var ano = data.getFullYear()
+            var fano = document.getElementById('txtn')
+            if (fano.value.length == 0 || Number(fano.value) > ano) {
+                alert('Erro! Digite os dados corretamente')
+            }else{
+                 
+                var res = document.getElementById('res')
+                var nasc = (fano.value)
+                var idade = ano - nasc
+                var sexo = document.getElementsByName('radsex')
+                var genero = ''
+                var s = document.getElementById('sex')
+                var img = document.createElement('img')
+                img.setAttribute('id', 'foto')
+                if (sexo[1].checked) {
+                    
+                    genero = 'feminino'
+                    sex.innerHTML = ` Você tem ${idade} anos <br>Mulher não tem obrigatoriedade de se alistar<br> Mas pode!`
+                    
+                    img.setAttribute('src', 'exercitoM.jpg')
+                }else{
+                    
+                if (idade == 18) {
+                    res.innerHTML = `Você tem${idade} anos você deve se alistar este ano`
+                } else if(idade < 18){
+                    res.innerHTML = `Você tem ${idade} anos não está na idade de se alistar<br>`
+                    saldo = 18 - idade 
+                    anoA = ano + saldo
+                    res.innerHTML += `Faltam ${saldo} anos para seu alistamento<br>`
+                    res.innerHTML += `Alistamento será em ${anoA}`
+                }else if(idade > 18){
+                    res.innerHTML = `Você tem ${idade} anos  passou seu alistamento<br>`
+                    saldo = idade - 18
+                    anoA = ano - saldo
+                    res.innerHTML += `Seu alistamento foi à ${saldo} anos<br>`
+                    res.innerHTML += `Seu alistamento foi em ${anoA}`
+                }
+                img.setAttribute('src','soldados.jpg')
+                
+            }
+            }
+            res.appendChild(img)
+            res.style.textAlign = 'center'
+        }
+        function limpa(){
+            res.innerHTML = ''
+            sex.innerHTML = ''
+
+        }
+    </script>
+    <footer>
+        <p>&copy; Curso em video Patricia</p>
+    </footer>
+</body>
+</html>
