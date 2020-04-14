@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jo Ken Po</title>
+    <style>
+        body{
+            background: #7ec6e7;
+            font-size: 18pt;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        section{
+            max-width: 500px;
+            width: 100%;
+            padding: 15px;
+            background: white;
+            margin: auto;
+            height: 100%;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, .6);
+            border-radius: 10px;
+        }
+        img{
+            margin-left: 30px;
+        }
+        input{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>Jo Ken Po</h1>
+    </header>
+    <section>
+        <h2>Jogador</h2>
+
+        <form action="">
+           <p> <img src="pedra.png" alt="">
+                <img src="papel.png" alt="">
+                <img src="tesoura.png" alt="">
+        </p>
+        <p>
+            <input type="radio" name="radjogo" id="pedra">
+            <label for="pedra">Pedra</label>
+            <input type="radio" name="radjogo" id="papel">
+            <label for="papel">Papel</label>
+            <input type="radio" name="radjogo" id="tesoura">
+            <label for="tesoura">Tesoura</label>
+        </p>
+       
+            <input type="button" value="Jogar" onclick="jogar()">
+            <input type="reset" value="Reset" onclick="limpa()">
+       <hr>
+       <div>
+           
+       </div>
+        </form>
+        <div id="placar">
+            <img src="pc.jpg" id="foto" alt="imagem de tela">
+        
+       <h3 id="res"></h3>
+        </div>
+    </section>
+    <script>
+        var opcao = document.getElementsByName('radjogo')
+        var res = document.getElementById('res')
+        var img = document.getElementById('foto')
+        function jogar(params) {
+            
+       
+        if (opcao[0].checked == false && opcao[1].checked == false && opcao[2].checked == false) {
+           alert('Erro escolha uma opção ') 
+        }else{
+            var comp = Math.floor(Math.random() * 3)
+            switch(comp){
+                case 0:
+                    img.src = 'pc-pedra.png'
+                break
+                case 1:
+                    img.src = 'pc-papel.png'
+                break
+                case 2: 
+                img.src = 'pc-tesoura1.png'
+                break
+            }
+            if (opcao[0].checked) {
+                if (comp == 1) {
+                    res.innerHTML = 'computador vence'
+                } else if(comp == 2){
+                    res.innerHTML = 'Jogador vence'
+                }else{
+                    res.innerHTML = 'Empate'
+                }
+            }else if (opcao[1].checked) {
+                if (comp == 0) {
+                    res.innerHTML = 'Jogador vence'         
+                } else if(comp == 2){
+                    res.innerHTML = 'computador vence' 
+                }else{
+                    res.innerHTML = 'Empate'
+                }
+            }else if (opcao[2].checked) {
+                if(comp == 1){
+                    res.innerHTML = 'Jogador vence'
+                }else if (comp == 0) {
+                    res.innerHTML = 'computador vence' 
+                }else{
+                    res.innerHTML = 'Empate'
+                }
+            }
+        }
+        }
+        function limpa(params) {
+            img.src = 'pc.jpg'
+            res.innerHTML = ''
+        }
+        
+    </script>
+    <footer>
+        <p>Patricia &copy;</p>
+    </footer>
+</body>
+</html>
