@@ -20,7 +20,7 @@
 <body>
 <div>
     <h1>Sortear um Aluno</h1>
-    <form action="">
+    <form>
     <p>1ª Aluno <input type="text" name="txtA" id="al1"></p>
     <p>2ª Aluno <input type="text" name="txtA" id="al2"></p>
     <p>3ª Aluno <input type="text" name="txtA" id="al3"></p>
@@ -45,6 +45,8 @@
         var sor = Math.floor(Math.random()*6)
         res.innerHTML += `lista ${lista}<br>`
         res.innerHTML += `O aluno sorteado foi ${lista[sor]}`
+        console.log(`${lista[sor]}`);
+        
     }
 </script>
 </body>

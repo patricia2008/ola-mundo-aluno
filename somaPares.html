@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body{
+            background: cadetblue;
+            font-size: 18pt;
+            text-align: center;
+            color: white;
+        }
+        section{
+            width: 500px;
+            background: white;
+            height: 300px;
+            margin: auto;
+            box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.6);
+            border-radius: 10px;
+            color: black;
+        }
+        div{
+            line-height: 20px;
+            padding: 10px;
+        }
+    </style>
+    <title>Numeros Primos</title>
+</head>
+<body>
+    <h1>Numeros Primos</h1>
+    <section>
+        <div>
+            <div id="num">Numeros:</div>
+            <input type="button" value="começar" onclick="somar()">
+        </div>
+        <div id="res"></div>
+      soma: <input type="text" name="" id="par">
+    </section>
+    <script>
+        function somar(params) {
+            var num = document.getElementById('num')
+            var res = document.getElementById('res')
+            let c = 1
+            let tot = 0
+            let soma = 0
+            while(c <= 6){
+                 var n = Number(prompt('digite um numero'))
+                num.innerHTML += `${n} `
+                
+                c++
+                if (n % 2 == 0) {
+                    tot ++
+                    soma = soma + n
+                }
+            }
+            res.innerHTML += `<br> ${tot} numeros pares `
+            document.getElementById('par').value = soma
+        }
+        
+    </script>
+</body>
+</html>
