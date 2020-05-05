@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body{
+            background: cadetblue;
+            font-size: 18pt;
+            text-align: center;
+            color: white;
+        }
+        section{
+            width: 500px;
+            background: white;
+            height: 300px;
+            margin: auto;
+            box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.6);
+            border-radius: 10px;
+            color: black;
+        }
+        div{
+            line-height: 70px;
+            padding: 10px;
+        }
+    </style>
+    <title>Numeros Primos</title>
+</head>
+<body>
+    <h1>Numeros Primos</h1>
+    <section>
+        <div>
+          <p>Numero  <input type="number" name="txtnum" id="txtnum">
+            <input type="button" value="Verificar" onclick="verificar()"></p>
+        </div>
+        <div id="res"></div>
+      <input type="text" name="" id="primo">
+    </section>
+    <script>
+        function verificar(params) {
+            var num = document.getElementById('txtnum')
+            var res = document.getElementById('res')
+            
+            if (num.value.length == 0) {
+                alert('Erro digite um numero')
+            }else{
+                var n = Number(num.value)
+                
+                var tot = 0
+                    for(var c = 1; c<=n; c++){
+                        if (n % c == 0) {
+                            tot = tot + 1
+                            res.innerHTML = `${n} é divivel ${tot}`
+                        }
+                        if(tot == 2){
+                            //res.innerHTML = `${n} é numero Primo`
+                            document.getElementById('primo').value =`${n} é numero Primo`
+                           
+                        }else{
+                            //res.innerHTML = `${n} não é primo`
+                            document.getElementById('primo').value =`${n} não é primo`
+                             
+                            
+
+                        }
+                    }
+                }
+                
+            }
+        
+    </script>
+</body>
+</html>

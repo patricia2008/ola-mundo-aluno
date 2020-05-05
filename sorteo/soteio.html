@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio de Alunos</title>
+    <style>
+        body{
+            background: #15bde7;
+        }
+        div{
+           width: 500px;
+           height: 500px;
+           background: white; 
+           text-align: center;
+           margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Sortear um Aluno</h1>
+    <form action="">
+    <p>1ª Aluno <input type="text" name="txtA" id="al1"></p>
+    <p>2ª Aluno <input type="text" name="txtA" id="al2"></p>
+    <p>3ª Aluno <input type="text" name="txtA" id="al3"></p>
+    <p>4ª Aluno <input type="text" name="txtA" id="al4"></p>
+    <p>5ª Aluno <input type="text" name="txtA" id="al5"></p>
+    <p>6ª Aluno <input type="text" name="txtA" id="al6"></p>
+    <input type="button" value="Sortear" onclick="sorte()">
+    </form>
+</div>
+<div id="res"></div>
+<script>
+    function sorte(params) {
+        var alunos1 = document.getElementsById('al1')
+        var alunos2 = document.getElementsById('al2')
+        var alunos3 = document.getElementsById('al3')
+        var alunos4 = document.getElementsById('al4')
+        var alunos5 = document.getElementsById('al5')
+        var alunos6 = document.getElementsById('al6')
+        var res = document.getElementById('res')
+        
+        var lista = [alunos1,alunos2,alunos3,alunos4,alunos5,alunos6]
+        var sor = Math.floor(Math.random()*6)
+        res.innerHTML += `lista ${lista}<br>`
+        res.innerHTML += `O aluno sorteado foi ${lista[sor]}`
+    }
+</script>
+</body>
+</html>
