@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modelo2</title>
+    <style>
+        body{
+            background: aqua;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            background: #504fb9;
+            margin: auto;
+            text-align: center;
+            font-size: 20pt;
+            color: azure;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos com mouse</h1>
+    <div id="a">
+        Clique aqui
+    </div>
+    <script>
+        document.getElementById('a').onmousemove = function (params) {
+            document.getElementById('a').innerHTML = 'Passou'
+        }
+        document.getElementById('a').onmouseout = function(){
+            this.innerHTML = 'Saiu!'
+        }
+    </script>
+</body>
+</html>
