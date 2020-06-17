@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventos</title>
+</head>
+<style>
+    body{
+        background: aqua;
+    }
+    div{
+        width: 300px;
+        height: 200px;
+        background: #504fb9;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Eventos com mouse</h1>
+    <div id="a">
+        Clique aqui
+    </div>
+    <script>
+        let area = document.getElementById('a')
+        area.addEventListener('click', clicou)
+        function clicou(params) {
+            area.innerHTML = 'Clicou!'
+            area.style.background = 'purple'
+            area.style.fontSize = '20pt'
+            area.style.lineHeight = '200px'
+            area.style.textAlign = 'center'
+            area.style.boxShadow = '2px 2px 5px rgba(0,0,0,.8)'
+            area.style.color = '#ffffff'
+            area.style.transition = '4s'
+            area.style.transform = 'translateX(100px)'
+        }
+        
+    </script>
+</body>
+</html>
