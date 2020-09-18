@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background: #3564aa;
+            font: normal 15pt Arial;
+        }
+        header{
+            color: white;
+            text-align: center;
+        }
+        section{
+            background: white;
+            border-radius: 10px;
+            padding:  15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, .500);
+            width: 500px;
+            margin: auto;
+
+        }
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+        div{
+            text-align: center;
+            padding: 8px;
+        }
+
+    </style>
+    <title>Media</title>
+</head>
+<body>
+    <header>
+    <h1>Medias dos Alunos</h1>
+   </header>
+    <section>
+
+        <div id="nota">
+         
+            <p>1 Nota <input type="number" name="txtnum1" id="txtnum1"> </p>
+            <p>  2 Nota <input type="number" name="txtnum2" id="txtnum2"></p>
+            <p><input type="button" value="Calcular" onclick="cal()"> </p>
+               
+        <div id="res">
+           
+        </div>
+            Media <input type="text" name="txt" id="txtm">
+           
+            
+        </div>
+        
+    </section>
+    <script>
+        
+        function cal(){
+           
+        var n1 = document.getElementById('txtnum1')
+        var n2 = document.getElementById('txtnum2')
+        var media = document.getElementById('txtm')
+        var res = document.getElementById('res')
+        if(n1.value.length == 0 || n2.value.length == 0){
+            alert("Por favor digite as notas")
+        }else{
+            
+           
+            var v1 = Number(n1.value)
+            var v2 = Number(n2.value)
+            var soma = Number(v1 + v2)/2
+            var conceito = ''
+            media.value = soma
+           
+            if (soma <= 4) {
+                conceito = 'Ruim'
+            } else if(soma <= 6){
+                conceito = 'Regular'
+            }else if(soma <= 8){
+                conceito = 'Bom'
+            }else{
+                conceito = 'Ótimo'
+            }
+        res.innerHTML = conceito
+        }
+        switch(conceito){
+            case "Ruim":
+                res.innerHTML += ' Tem que estudar mais'
+                break;
+            case "Regular":
+                res.innerHTML += ' Quase lá '
+                break;
+                case "Bom": 
+                res.innerHTML += ' Continui assim'
+                break;
+                case "Ótimo":
+                    res.innerHTML += ' Mandou muito bem!'
+                    break
+         }       
+    }
+        
+        
+        
+        
+    </script>
+    <footer>
+        <p>&copy; Curso em video Patricia</p>
+    </footer>
+</body>
+</html>
