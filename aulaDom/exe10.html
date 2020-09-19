@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas de Multas</title>
+</head>
+<body>
+    <h1>Sistemas de Multas</h1>
+    velocidade do carro: <input type="number" name="txtvel" id="txtvel">Km/h
+    <div id="res"></div>
+    <input type="button" value="Verificar" id="botao">
+    <script>
+        var bot = document.getElementById('botao')
+        bot.addEventListener('click', verificar)
+
+        function verificar(){
+            let txtv = document.querySelector('input#txtvel')
+            let res = document.querySelector('div#res')
+            let vel = Number(txtv.value)
+            res.innerHTML = `Sua velocidade é ${vel} Km/h`
+            if(vel > 60){
+                res.innerHTML += '<strong> Você foi Multado! </strong>'
+            }else{
+                res.innerHTML += '<p> Dirija sempre com cinto desegunça!</p>'
+            }
+
+        }
+    </script>
+</body>
+</html>
